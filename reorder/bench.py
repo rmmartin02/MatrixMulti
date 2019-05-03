@@ -6,6 +6,7 @@ with open('test.txt','w') as f:
 
 for f in os.listdir():
 	if '.' not in f:
-		for i in range(1,12):
+		for i in range(1,11):
 			n = 2**i
-			call(["./{}".format(f),str(n)])
+			for trial in range(5):
+				call(["./{}".format(f),str(n)])

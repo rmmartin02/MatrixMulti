@@ -15,4 +15,5 @@ for f in os.listdir():
 			n = 2**i
 			for j in range(0,cpus):
 				t = 2**j
-				call(["./{}".format(f),str(n),str(t)])
+				for trial in range(5):
+					call(["./{}".format(f),str(n),str(t)])
