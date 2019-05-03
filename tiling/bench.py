@@ -11,7 +11,7 @@ with open('test.txt','w') as f:
 
 for f in os.listdir():
 	if '.' not in f:
-		for i in range(1,16):
+		for i in range(1,12):
 			n = 2**i
 			for j in range(0,16):
 				t = 2**j
