@@ -18,14 +18,32 @@ A = np.random.rand(N, N).astype(np.dtype('f4'))
 B = np.random.rand(N, N).astype(np.dtype('f4'))
 C = np.zeros((N, N)).astype(np.dtype('f4'))
 
-# Built in version
-start = time.clock()
-correct = A.dot(B)
-print(time.clock() - start)
+with open('test.txt','w') as f:
+    f.write('')
 
-# default implementation
-start = time.clock()
+for abc in range(1,14):
+    print(2**abc)
+    for trial in range(3):
+        N = 2**abc
+        A = np.random.rand(N, N).astype(np.dtype('f4'))
+        B = np.random.rand(N, N).astype(np.dtype('f4'))
+        C = np.zeros((N, N))
+        AL = A.tolist()
+        BL = B.tolist()
+        CL = C.tolist()
+        correct = A.dot(B)
 
+        # default implementation
+        print('default')
+        start = time.clock()
+        
+        C = A.dot(B)
+
+        cputime = time.clock()-start
+        with open('testNP.txt','a') as f:
+            f.write('{}, {}, {}\n'.format('default', N, cputime))
+
+'''
 for i in range(N):
     for j in range(N):
         C[i][j] = 0.0
@@ -148,3 +166,4 @@ for x in threads:
 print(time.clock() - start)
 print(checkMM(C, correct, .001))
 C = np.zeros((N, N)).astype(np.dtype('f4'))
+'''

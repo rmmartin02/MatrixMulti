@@ -11,7 +11,7 @@ with open('test.txt','w') as f:
 
 for f in os.listdir():
 	if 'sgemm' in f:
-		for i in range(1,12):
+		for i in range(1,14):
 			n = 2**i
 			for trial in range(5):
 				call(["./{}".format(f),str(n)])
